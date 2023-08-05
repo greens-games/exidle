@@ -1,0 +1,2 @@
+[workspace]
+members = ["exidle-server", "exidle-client"]
