@@ -1,13 +1,12 @@
 use std::net::SocketAddr;
 
-//use axum::{*, routing::get};
 use axum::{
     routing::{get},
     Router,
     response::*, extract
 };
-use idle_game_server::{player::{Player}, items::ItemGenerator};
-use idle_game_server::items::Item;
+use exidle_server::{player::{Player}, items::{ItemGenerator, Rarity}};
+use exidle_server::items::Item;
 
 #[tokio::main]
 async fn main() {
@@ -48,9 +47,10 @@ async fn get_item() -> Json<Item> {
         name: String::from("Sword"),
         damage: 5,
         attack_spd: 1.0,
-        item_type: String::from("one-hannded")
+        item_type: String::from("one-hannded"),
+        rarity: Rarity::NORMAL
     };
-
+    
     Json(item)
 }
 
